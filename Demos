@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Matching Game (Team Mode)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Team Setup Styles (placed in internal <style> tag) */
+        .team-setup {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 800px;
+            max-width: 90%;
+        }
+        .team-setup label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .team-setup input {
+            padding: 8px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Scoreboard Styles (placed in internal <style> tag) */
+        .scoreboard {
+            width: 800px;
+            max-width: 90%;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #333; 
+            border-radius: 8px;
+            background-color: #111; 
+        }
+        .team-score {
+            text-align: center;
+            font-size: 1.1em;
+            color: #DDDDDD; 
+        }
+        .active-team {
+            background-color: #f5e77d; 
+            color: #000000;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .active-team strong {
+            color: #000000;
+        }
+        /* Game Board Grid Styles (placed in internal <style> tag) */
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            width: 800px;
+            perspective: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Percentage Matching Game (Team Mode)</h1>
+        <p>Match the calculation to its correct value to clear the board!</p>
+    </header>
+
+    <div class="team-setup">
+        <div id="team-input-1">
+            <label for="team-name-1">Team 1 Name:</label>
+            <input type="text" id="team-name-1" value="Team Alpha" onchange="updateTeamName(1, this.value)">
+        </div>
+        <div id="team-input-2">
+            <label for="team-name-2">Team 2 Name:</label>
+            <input type="text" id="team-name-2" value="Team Beta" onchange="updateTeamName(2, this.value)">
+        </div>
+        <div id="team-input-3">
+            <label for="team-name-3">Team 3 Name:</label>
+            <input type="text" id="team-name-3" value="Team Gamma" onchange="updateTeamName(3, this.value)">
+        </div>
+        <div id="team-input-4">
+            <label for="team-name-4">Team 4 Name:</label>
+            <input type="text" id="team-name-4" value="Team Delta" onchange="updateTeamName(4, this.value)">
+        </div>
+    </div>
+    
+    <div class="scoreboard">
+        <div id="team-score-1" class="team-score"></div>
+        <div id="team-score-2" class="team-score"></div>
+        <div id="team-score-3" class="team-score"></div>
+        <div id="team-score-4" class="team-score"></div>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <div id="game-board" class="game-board">
+        </div>
+
+    <button id="reset-button">Restart Game</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
