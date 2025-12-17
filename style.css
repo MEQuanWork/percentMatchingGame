@@ -1,0 +1,165 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+    /* Black Background */
+    background-color: #000000; 
+    background-image: none;
+    color: #DDDDDD; 
+    position: relative; /* Essential for positioning the ::before element */
+}
+
+/* NEW: Pseudo-element for the Math Symbols Overlay */
+body::before {
+    content: "1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ 1 0 1 0 0 1 0 1 ∑ ∫ π 4 8 15 16 23 42 ∞ α β γ δ λ μ ν ξ ρ σ τ υ φ χ ψ Ω Δ Θ Λ Ξ Π Σ Υ Φ Ψ"; /* A mix of numbers and math symbols */
+    position: fixed; /* Fixed position so it covers the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Stacked behind everything */
+    z-index: 0; 
+    
+    /* Yellow color at 20% transparency */
+    color: rgba(255, 255, 0, 0.1); 
+    
+    /* Layout and Size of Symbols */
+    font-size: 50px;
+    line-height: 1.5;
+    word-break: break-all; /* Ensures symbols fill the space */
+    
+    /* Rotation and movement to make it look scattered/random */
+    transform: rotate(15deg) scale(1.5) translate(-10%, -10%);
+    opacity: 0.8; /* Slight opacity adjustment */
+    pointer-events: none; /* Allows clicks to pass through to the game */
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Game Board Grid */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 10px;
+    width: 800px; 
+    perspective: 1000px;
+    position: relative; 
+    z-index: 10; 
+}
+
+/* Card Styling (the container for the front and back) */
+.card-container {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: none; 
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+/* Flipped State */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Matched State: Fades to 50% opacity (dark gray look) */
+.card-container.matched .card-face {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Card Faces (Front and Back) */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* Back of the Card: Blue with Numbers (1-30) */
+.card-back {
+    background-color: #007BFF; 
+    color: #f2dc38; 
+    font-size: 2.5em; 
+    border: 3px solid #0056b3;
+}
+
+/* Front of the Card: White/Light with Black Text */
+.card-front {
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 3px solid #CCCCCC;
+    transform: rotateY(180deg);
+}
+
+/* Scoreboard and Inputs adjustments for black background */
+.scoreboard {
+    width: 800px;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #333; 
+    border-radius: 8px;
+    background-color: #111; 
+}
+.active-team {
+    background-color: #f5e77d; 
+    color: #000000;
+    padding: 5px;
+    border-radius: 4px;
+}
+.active-team strong {
+    color: #000000;
+}
+.team-setup input {
+    background-color: #222; 
+    color: #FFF;
+    border: 1px solid #555;
+}
+
+/* Feedback Message */
+.message {
+    margin: 20px 0;
+    font-size: 1.5em;
+    min-height: 25px;
+    color: #00BFFF; 
+}
+
+/* Reset Button */
+#reset-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
